@@ -117,6 +117,30 @@ nav{padding:16px 48px;display:flex;justify-content:space-between;align-items:cen
 .thank-you p{color:#888;font-size:16px;line-height:1.7;margin-bottom:8px}
 .thank-you .highlight{color:#22C55E;font-weight:700}
 
+/* SIGNS/EDUCATION */
+.signs{padding:100px 48px}
+.signs-inner{max-width:1000px;margin:0 auto;text-align:center}
+.signs h2{font-size:clamp(28px,4vw,40px);font-weight:900;margin-bottom:16px;letter-spacing:-1px}
+.signs>p{color:#888;font-size:17px;margin-bottom:48px;max-width:700px;margin-left:auto;margin-right:auto;line-height:1.7}
+.signs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;text-align:left}
+.sign-card{background:#1A1A1A;border:1px solid #252525;border-radius:14px;padding:24px 28px;transition:all .3s;display:flex;gap:16px;align-items:start}
+.sign-card:hover{border-color:rgba(212,43,43,.3)}
+.sign-icon{font-size:28px;flex-shrink:0;margin-top:2px}
+.sign-card h4{font-size:15px;font-weight:700;margin-bottom:4px}
+.sign-card p{font-size:13px;color:#888;line-height:1.6}
+.signs-warning{margin-top:36px;background:rgba(212,43,43,.06);border:1px solid rgba(212,43,43,.2);border-radius:14px;padding:20px 28px;color:#AAA;font-size:15px;line-height:1.7;text-align:left}
+.signs-warning strong{color:#D42B2B}
+
+/* FAQ */
+.faq{padding:80px 48px;background:#111;border-top:1px solid #252525}
+.faq-inner{max-width:700px;margin:0 auto}
+.faq h2{font-size:32px;font-weight:900;margin-bottom:36px;letter-spacing:-1px;text-align:center}
+.faq-item{border-bottom:1px solid #252525;padding:20px 0}
+.faq-item:last-child{border:none}
+.faq-q{font-size:16px;font-weight:700;margin-bottom:8px;color:#fff}
+.faq-a{font-size:15px;color:#888;line-height:1.7}
+.faq-a strong{color:#fff}
+
 /* REVIEWS */
 .reviews{padding:80px 48px}
 .reviews-inner{max-width:1000px;margin:0 auto;text-align:center}
@@ -166,7 +190,8 @@ footer{border-top:1px solid #252525;padding:24px 48px;text-align:center}
   .hero{padding:60px 20px 80px}
   .insp-grid{grid-template-columns:1fr}
   .reviews-grid{grid-template-columns:1fr}
-  .warning,.insurance,.inspection,.reviews,.final-cta,.lead-form-section{padding-left:20px;padding-right:20px}
+  .warning,.insurance,.inspection,.reviews,.final-cta,.lead-form-section,.signs,.faq{padding-left:20px;padding-right:20px}
+  .signs-grid{grid-template-columns:1fr}
   .lead-form{padding:28px 20px}
   .mobile-cta{display:flex}
   footer{padding-bottom:80px;padding-left:20px;padding-right:20px}
@@ -178,8 +203,8 @@ footer{border-top:1px solid #252525;padding:24px 48px;text-align:center}
 
 <!-- URGENCY BAR -->
 <div class="urgent-bar">
-  ⚠️ HAIL STORM ALERT — FREE Inspections Available Now for Marion & Grant County
-  <span> | Limited Availability This Week</span>
+  ⚠️ Marion & Grant County Hail Damage — FREE Inspections This Week
+  <span> | Scheduling Now — Limited Spots Available</span>
 </div>
 
 <!-- MINIMAL NAV -->
@@ -194,16 +219,16 @@ footer{border-top:1px solid #252525;padding:24px 48px;text-align:center}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-badge">⚡ Hail Damage Response Team</div>
-    <h1>Your Roof Took a <span class="accent">Beating.</span>
-    <span class="location">Marion & Grant County Hail Damage Inspections</span></h1>
-    <p class="hero-sub">Hail damage isn't always visible from the ground — but it's up there. <strong>Cracked shingles, dented flashing, bruised siding.</strong> Left alone, it becomes roof leaks, water damage, and a much bigger bill. Get a free inspection before the next rain finds the problem for you.</p>
+    <div class="hero-badge">⚡ Marion & Grant County</div>
+    <h1>That Storm Just Cost You <span class="accent">Thousands.</span>
+    <span class="location">You just don't know it yet.</span></h1>
+    <p class="hero-sub">Most hail damage is <strong>invisible from the ground.</strong> By the time you notice water stains on your ceiling, the damage that started as a $3,000 repair has become a $15,000 problem. We'll get on the roof, inspect everything, and hand you a <strong>free written report with photos</strong> you can give straight to your insurance company.</p>
 
     <div class="hero-phone"><a href="tel:3178618557" style="color:inherit">(317) 861-8557</a></div>
     <div class="hero-phone-secondary">or text/call <a href="tel:3174575809" style="color:#D42B2B;font-weight:700">(317) 457-5809</a></div>
 
     <div class="hero-actions">
-      <a href="tel:3178618557" class="btn-red">📞 Call for Free Inspection</a>
+      <a href="tel:3178618557" class="btn-red">📞 Get Your Free Inspection</a>
       <a href="#form" class="btn-ghost">📋 Request Online</a>
     </div>
 
@@ -211,7 +236,36 @@ footer{border-top:1px solid #252525;padding:24px 48px;text-align:center}
       <div class="hero-trust-item"><span class="icon">🛡️</span> Licensed & Insured</div>
       <div class="hero-trust-item"><span class="icon">📋</span> IN License #9186</div>
       <div class="hero-trust-item"><span class="icon">📍</span> Local Indiana Contractor</div>
-      <div class="hero-trust-item"><span class="icon">💰</span> 100% Free — No Obligation</div>
+      <div class="hero-trust-item"><span class="icon">💰</span> Free — No Obligation</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT HAIL DAMAGE LOOKS LIKE — EDUCATION -->
+<section class="signs">
+  <div class="signs-inner">
+    <h2>Think Your Home Is Fine?<br>Check Again.</h2>
+    <p>Most homeowners look at their house from the driveway and think, "Looks okay to me." But hail damage hides. Here's what it actually looks like up close — and why you can't see it from the ground.</p>
+    <div class="signs-grid">
+      <div class="sign-card">
+        <div class="sign-icon">🔍</div>
+        <div><h4>Bruised Shingles</h4><p>Hail creates soft spots where granules get knocked loose. The shingle looks fine from 30 feet away, but it's already compromised. Water will find its way in within months.</p></div>
+      </div>
+      <div class="sign-card">
+        <div class="sign-icon">💧</div>
+        <div><h4>Cracked Flashing</h4><p>The metal around your chimney, vents, and skylights takes direct hits. Tiny cracks open up. These are the #1 source of "mystery leaks" that appear months after a storm.</p></div>
+      </div>
+      <div class="sign-card">
+        <div class="sign-icon">🏚️</div>
+        <div><h4>Dented Gutters & Downspouts</h4><p>If your gutters have dents, your roof took the same beating — it's just harder to see. Dented gutters are the warning sign that roof damage is almost certainly hiding above.</p></div>
+      </div>
+      <div class="sign-card">
+        <div class="sign-icon">🧱</div>
+        <div><h4>Siding Impact Marks</h4><p>Vinyl cracks. Aluminum dents. Wood splits. Damaged siding lets moisture behind your walls, leading to rot, mold, and insulation damage you won't discover until it's a major repair.</p></div>
+      </div>
+    </div>
+    <div class="signs-warning">
+      <strong>Here's what most people don't realize:</strong> A roof with hail damage can look completely normal for 6-12 months. Then the first hard rain or freeze-thaw cycle hits, and cracked shingles start letting water through. By then, you've got attic damage, wet insulation, and possibly mold. The repair that would have been covered by insurance at $3,000 is now a $10,000-$15,000 problem — and your window to file a claim may have closed.
     </div>
   </div>
 </section>
@@ -220,26 +274,27 @@ footer{border-top:1px solid #252525;padding:24px 48px;text-align:center}
 <section class="insurance">
   <div class="insurance-inner">
     <div class="insurance-content">
-      <h2>Your Insurance <span class="accent">Probably Covers This.</span></h2>
-      <p>Most homeowners don't realize that <strong>hail damage is typically covered by your homeowner's insurance.</strong> You may only be responsible for your deductible.</p>
-      <p>But insurance companies have <strong>deadlines for filing claims,</strong> and you need a professional inspection report to back up your claim. That's exactly what we provide — free.</p>
+      <h2>Here's What Most People <span class="accent">Don't Know</span></h2>
+      <p><strong>Your homeowner's insurance almost certainly covers hail damage.</strong> You're typically only responsible for your deductible. The insurance company pays for the rest — the roof repair, the siding replacement, all of it.</p>
+      <p>But here's the catch. <strong>Insurance companies don't call you.</strong> You have to file the claim. And you need a professional inspection report with photos to back it up. Without documentation, your claim gets denied or lowballed.</p>
+      <p>That's exactly what our free inspection gives you — <strong>the documentation your insurance company needs to approve and pay your claim.</strong></p>
     </div>
     <div class="insurance-steps">
       <div class="ins-step">
         <div class="ins-num">1</div>
-        <div class="ins-text"><h4>We Inspect Your Property</h4><p>Roof, siding, gutters, windows — we check everything.</p></div>
+        <div class="ins-text"><h4>We Inspect Your Property</h4><p>Roof, siding, gutters, windows, flashing — every surface that took impact.</p></div>
       </div>
       <div class="ins-step">
         <div class="ins-num">2</div>
-        <div class="ins-text"><h4>You Get a Written Report</h4><p>Detailed documentation with photos for your insurance company.</p></div>
+        <div class="ins-text"><h4>You Get a Written Report</h4><p>Detailed findings with photos — exactly what your insurance adjuster needs to process your claim.</p></div>
       </div>
       <div class="ins-step">
         <div class="ins-num">3</div>
-        <div class="ins-text"><h4>We Help With Your Claim</h4><p>We'll walk you through the insurance process step by step.</p></div>
+        <div class="ins-text"><h4>You Call Your Insurance Company</h4><p>File your claim with the report in hand. We'll walk you through the process if you've never done it.</p></div>
       </div>
       <div class="ins-step">
         <div class="ins-num">4</div>
-        <div class="ins-text"><h4>Repairs Done Right</h4><p>Licensed, insured, warranty-backed work by a local crew.</p></div>
+        <div class="ins-text"><h4>Repairs Done Right</h4><p>Once approved, we handle the work — licensed, insured, guaranteed. No shortcuts.</p></div>
       </div>
     </div>
   </div>
@@ -248,29 +303,29 @@ footer{border-top:1px solid #252525;padding:24px 48px;text-align:center}
 <!-- STORM CHASER WARNING -->
 <section class="warning">
   <div class="warning-inner">
-    <h2>After Every Storm, They Show Up.<br>Know the Difference.</h2>
-    <p>Within 48 hours of a hail event, out-of-state "storm chaser" crews flood the area knocking on doors. They offer low prices, do fast work, and disappear. Here's how to protect yourself.</p>
+    <h2>The Knock on Your Door<br>Is Coming. Be Ready.</h2>
+    <p>Within 48 hours of every major hail event, out-of-state contractor crews flood the area. They knock on every door. They offer to "handle everything with your insurance." They pressure you to sign on the spot. Then they do the cheapest possible repair and leave town. Here's what that actually looks like.</p>
     <div class="comparison">
       <div class="comp-card bad">
-        <h3>🚫 The Storm Chasers</h3>
+        <h3>🚫 The Storm Chaser</h3>
         <ul class="comp-list">
-          <li><span class="icon">❌</span> Out-of-state crews — here today, gone tomorrow</li>
-          <li><span class="icon">❌</span> No local license or accountability</li>
-          <li><span class="icon">❌</span> Pressure you to sign on the spot</li>
-          <li><span class="icon">❌</span> Cut corners to maximize profit per stop</li>
-          <li><span class="icon">❌</span> Good luck calling them when it leaks next year</li>
-          <li><span class="icon">❌</span> No warranty you can actually enforce</li>
+          <li><span class="icon">❌</span> Out-of-state crew with no Indiana contractor license on file</li>
+          <li><span class="icon">❌</span> Pressures you to sign before the adjuster even shows up</li>
+          <li><span class="icon">❌</span> Uses the cheapest materials available to maximize their cut</li>
+          <li><span class="icon">❌</span> Leaves town the moment your check clears</li>
+          <li><span class="icon">❌</span> When your roof leaks next January, that phone number is disconnected</li>
+          <li><span class="icon">❌</span> Their "warranty" is worthless when you can't find them</li>
         </ul>
       </div>
       <div class="comp-card good">
         <h3>✅ The Jack of All Trades</h3>
         <ul class="comp-list">
-          <li><span class="icon">✓</span> Indiana-licensed contractor (License #9186)</li>
-          <li><span class="icon">✓</span> Based right here in Central Indiana</li>
-          <li><span class="icon">✓</span> No pressure — free inspection, written report, your decision</li>
-          <li><span class="icon">✓</span> Obsessive attention to detail on every job</li>
-          <li><span class="icon">✓</span> We'll be here next year, and the year after that</li>
-          <li><span class="icon">✓</span> Fully insured with workmanship warranty</li>
+          <li><span class="icon">✓</span> Indiana-licensed contractor — License #9186, fully insured, verifiable</li>
+          <li><span class="icon">✓</span> Free inspection first. Written report. Your decision, your timeline.</li>
+          <li><span class="icon">✓</span> Quality materials and obsessive attention to detail on every job</li>
+          <li><span class="icon">✓</span> Based right here in Central Indiana — we're not going anywhere</li>
+          <li><span class="icon">✓</span> Call us next January. Call us in five years. Same number, same crew.</li>
+          <li><span class="icon">✓</span> Written workmanship warranty you can actually enforce</li>
         </ul>
       </div>
     </div>
@@ -280,23 +335,23 @@ footer{border-top:1px solid #252525;padding:24px 48px;text-align:center}
 <!-- WHAT YOU GET -->
 <section class="inspection">
   <div class="inspection-inner">
-    <h2>Your Free Inspection Includes</h2>
-    <p>No charge. No obligation. No sales pressure. Just an honest assessment from a licensed professional.</p>
+    <h2>Your Free Hail Damage Report</h2>
+    <p>This isn't a quick glance from the driveway. We get on the roof, inspect every surface, and hand you a professional report — whether you hire us or not.</p>
     <div class="insp-grid">
       <div class="insp-card">
         <div class="icon">🏠</div>
-        <h4>Full Roof Inspection</h4>
-        <p>We check every shingle, flashing point, ridge cap, and vent for hail impact damage.</p>
+        <h4>Complete Roof Inspection</h4>
+        <p>We physically get up there and check every shingle, ridge cap, flashing point, and vent. No guessing from the ground.</p>
       </div>
       <div class="insp-card">
         <div class="icon">🧱</div>
-        <h4>Siding & Exterior Check</h4>
-        <p>Vinyl, aluminum, and wood siding are all vulnerable. We inspect every side of your home.</p>
+        <h4>Siding, Gutters & Exterior</h4>
+        <p>Vinyl, aluminum, wood, gutters, downspouts, window frames — every surface that faces the sky gets inspected.</p>
       </div>
       <div class="insp-card">
         <div class="icon">📝</div>
         <h4>Written Report with Photos</h4>
-        <p>Professional documentation you can hand directly to your insurance adjuster.</p>
+        <p>A professional document you hand to your insurance adjuster. This is what gets your claim approved and paid.</p>
       </div>
     </div>
     <a href="tel:3178618557" class="btn-red">📞 Schedule Your Free Inspection</a>
@@ -306,11 +361,10 @@ footer{border-top:1px solid #252525;padding:24px 48px;text-align:center}
 <!-- LEAD CAPTURE FORM -->
 <section class="lead-form-section" id="form">
   <div class="lead-form-inner">
-    <h2>Request Your Free Inspection</h2>
-    <p>Can't call right now? No problem. Drop your info below and Chase will reach out within a few hours to schedule your free hail damage inspection.</p>
+    <h2>Can't Call Right Now?</h2>
+    <p>Drop your info below. Chase will personally reach out within a few hours to schedule your inspection. No phone trees. No call centers. You talk directly to the contractor who will be on your roof.</p>
     <div class="lead-form" id="formContainer">
       <form id="inspectionForm" action="https://formsubmit.co/REPLACE_WITH_EMAIL" method="POST">
-        <!-- FormSubmit config -->
         <input type="hidden" name="_subject" value="🚨 New Hail Damage Inspection Request — GottaCallJack.com">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
@@ -330,25 +384,55 @@ footer{border-top:1px solid #252525;padding:24px 48px;text-align:center}
           <input type="text" name="address" placeholder="Street address, city" required>
         </div>
         <div class="form-group">
-          <label>What damage have you noticed? (optional)</label>
-          <textarea name="damage_description" placeholder="e.g., Dented gutters, missing shingles, cracked siding, not sure yet..."></textarea>
+          <label>What have you noticed? (optional)</label>
+          <textarea name="damage_description" placeholder="e.g., Dented gutters, car got dinged, not sure if roof is damaged, storm chasers already knocked..."></textarea>
         </div>
-        <button type="submit" class="btn-submit">Request My Free Inspection →</button>
+        <button type="submit" class="btn-submit">Get My Free Hail Damage Report →</button>
       </form>
-      <div class="form-note">🔒 Your information is private and only goes to Chase at The Jack of All Trades.</div>
+      <div class="form-note">🔒 Goes directly to Chase. No spam. No sharing. No call centers.</div>
 
       <div class="form-divider"><span>or</span></div>
       <div class="form-or-call">
-        Prefer to talk? Call <a href="tel:3178618557">(317) 861-8557</a> or text <a href="sms:3178618557?body=Hi%20Chase%2C%20I%20need%20a%20hail%20damage%20inspection.%20My%20address%20is%3A%20">"Hail Inspection"</a>
+        Ready now? Call <a href="tel:3178618557">(317) 861-8557</a> or text <a href="sms:3178618557?body=Hi%20Chase%2C%20I%20need%20a%20hail%20damage%20inspection.%20My%20address%20is%3A%20">"Hail Inspection"</a>
       </div>
     </div>
 
-    <!-- Thank you state -->
     <div class="lead-form thank-you" id="thankYou" style="display:none">
       <div class="check">✅</div>
       <h3>You're All Set!</h3>
-      <p>Chase will reach out within a few hours to schedule your <span class="highlight">free hail damage inspection.</span></p>
-      <p>If you need immediate help, call <a href="tel:3178618557" style="color:#D42B2B;font-weight:700">(317) 861-8557</a></p>
+      <p>Chase will personally reach out within a few hours to schedule your <span class="highlight">free hail damage inspection.</span></p>
+      <p>Need to talk sooner? Call <a href="tel:3178618557" style="color:#D42B2B;font-weight:700">(317) 861-8557</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner">
+    <h2>Common Questions</h2>
+    <div class="faq-item">
+      <div class="faq-q">"How much does the inspection cost?"</div>
+      <div class="faq-a">Nothing. It's free. We inspect your property, give you a written report with photos, and you decide what to do next. If there's no damage, you've got peace of mind. If there is, you've got the documentation you need to file an insurance claim.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">"Are you going to pressure me to hire you?"</div>
+      <div class="faq-a">No. The report is yours whether you hire us or not. We do this because when homeowners see the quality of our work and how we treat them, most choose to work with us for the repair. But that's always your call.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">"Does insurance really cover hail damage?"</div>
+      <div class="faq-a"><strong>Yes, in most cases.</strong> Standard homeowner's insurance covers hail damage under dwelling coverage. You're typically responsible for your deductible, and insurance covers the rest. A professional inspection report with photos is what makes the difference between a claim that gets approved and one that gets denied.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">"How long does the inspection take?"</div>
+      <div class="faq-a">About 30-45 minutes. We check the roof, siding, gutters, flashing, and exterior. You don't need to prepare anything — just be home so we can walk through the findings with you.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">"How do I know you're not a storm chaser?"</div>
+      <div class="faq-a">Indiana Home Improvement License #9186. Google us. Drive by our jobs. Call our past customers. We've been serving Central Indiana for years and we're not going anywhere. The guy knocking on your door from out of state won't have any of that.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">"What if I wait and deal with this later?"</div>
+      <div class="faq-a">You can. But here's what happens: cracked shingles let water seep in slowly. Over 6-12 months, you get attic moisture, insulation damage, and eventually mold. A $3,000 roof repair becomes a $10,000-$15,000 problem. And your insurance company may deny the claim because too much time passed since the storm. <strong>The inspection is free. The risk of waiting isn't.</strong></div>
     </div>
   </div>
 </section>
@@ -356,8 +440,8 @@ footer{border-top:1px solid #252525;padding:24px 48px;text-align:center}
 <!-- REVIEWS -->
 <section class="reviews">
   <div class="reviews-inner">
-    <h2>What Homeowners Say About Our Work</h2>
-    <p>Real reviews from real customers across Indianapolis and Central Indiana.</p>
+    <h2>We Let Our Work Speak for Itself</h2>
+    <p>Real reviews from real homeowners across Central Indiana.</p>
     <div class="reviews-grid">
       <div class="r-card">
         <div class="r-stars">★★★★★</div>
@@ -389,8 +473,8 @@ footer{border-top:1px solid #252525;padding:24px 48px;text-align:center}
 
 <!-- FINAL CTA -->
 <section class="final-cta">
-  <h2>Don't Wait for the Next Rain<br>to Find the Problem.</h2>
-  <p>Hail damage gets worse over time. What starts as a cracked shingle turns into a roof leak, then water damage, then mold. Get ahead of it now — for free.</p>
+  <h2>Every Day You Wait,<br>the Damage Gets Worse.</h2>
+  <p>Cracked shingles don't heal themselves. The next rain pushes water a little deeper. The next freeze opens the cracks a little wider. And the clock on your insurance claim keeps ticking. The inspection is free. The report is free. The only thing that costs money is doing nothing.</p>
   <div class="final-phone"><a href="tel:3178618557" style="color:inherit">(317) 861-8557</a></div>
   <div class="final-phone-2">or <a href="tel:3174575809" style="color:#D42B2B;font-weight:700">(317) 457-5809</a></div>
   <a href="tel:3178618557" class="btn-red">📞 Call Chase — Free Inspection →</a>
@@ -400,10 +484,10 @@ footer{border-top:1px solid #252525;padding:24px 48px;text-align:center}
     <div class="ft"><span>📋</span> IN License #9186</div>
     <div class="ft"><span>⭐</span> 5-Star Rated</div>
     <div class="ft"><span>📍</span> Central Indiana Based</div>
-    <div class="ft"><span>💰</span> Free Inspection</div>
+    <div class="ft"><span>💰</span> 100% Free Inspection</div>
   </div>
   <div class="final-site">
-    <a href="https://gottacalljack.com">Visit GottaCallJack.com to see our full portfolio →</a>
+    <a href="https://gottacalljack.com">See our full portfolio at GottaCallJack.com →</a>
   </div>
 </section>
 
@@ -423,13 +507,11 @@ footer{border-top:1px solid #252525;padding:24px 48px;text-align:center}
 </div>
 
 <script>
-// Show thank you message if redirected back from form submission
 if(window.location.hash === '#thankyou') {
   var fc = document.getElementById('formContainer');
   var ty = document.getElementById('thankYou');
   if(fc) fc.style.display = 'none';
   if(ty) ty.style.display = 'block';
-  // Scroll to the thank you message
   setTimeout(function(){ document.getElementById('form').scrollIntoView({behavior:'smooth'}); }, 300);
 }
 </script>
