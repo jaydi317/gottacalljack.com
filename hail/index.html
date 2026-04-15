@@ -364,30 +364,25 @@ footer{border-top:1px solid #252525;padding:24px 48px;text-align:center}
     <h2>Can't Call Right Now?</h2>
     <p>Drop your info below. Chase will personally reach out within a few hours to schedule your inspection. No phone trees. No call centers. You talk directly to the contractor who will be on your roof.</p>
     <div class="lead-form" id="formContainer">
-      <form id="inspectionForm" action="https://formsubmit.co/REPLACE_WITH_EMAIL" method="POST">
-        <input type="hidden" name="_subject" value="🚨 New Hail Damage Inspection Request — GottaCallJack.com">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://gottacalljack.com/hail/#thankyou">
-        <input type="text" name="_honey" style="display:none">
-
+      <form id="inspectionForm" onsubmit="return submitForm(event)">
         <div class="form-group">
           <label>Your Name</label>
-          <input type="text" name="name" placeholder="First and last name" required>
+          <input type="text" name="name" id="f_name" placeholder="First and last name" required>
         </div>
         <div class="form-group">
           <label>Phone Number</label>
-          <input type="tel" name="phone" placeholder="(555) 123-4567" required>
+          <input type="tel" name="phone" id="f_phone" placeholder="(555) 123-4567" required>
         </div>
         <div class="form-group">
           <label>Property Address</label>
-          <input type="text" name="address" placeholder="Street address, city" required>
+          <input type="text" name="address" id="f_address" placeholder="Street address, city" required>
         </div>
         <div class="form-group">
           <label>What have you noticed? (optional)</label>
-          <textarea name="damage_description" placeholder="e.g., Dented gutters, car got dinged, not sure if roof is damaged, storm chasers already knocked..."></textarea>
+          <textarea name="damage_description" id="f_damage" placeholder="e.g., Dented gutters, car got dinged, not sure if roof is damaged, storm chasers already knocked..."></textarea>
         </div>
-        <button type="submit" class="btn-submit">Get My Free Hail Damage Report →</button>
+        <button type="submit" class="btn-submit" id="submitBtn">Get My Free Hail Damage Report →</button>
+        <div id="formError" style="display:none;margin-top:14px;padding:14px 18px;background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.3);border-radius:10px;color:#EF4444;font-size:14px;text-align:center"></div>
       </form>
       <div class="form-note">🔒 Goes directly to Chase. No spam. No sharing. No call centers.</div>
 
@@ -507,12 +502,47 @@ footer{border-top:1px solid #252525;padding:24px 48px;text-align:center}
 </div>
 
 <script>
-if(window.location.hash === '#thankyou') {
-  var fc = document.getElementById('formContainer');
-  var ty = document.getElementById('thankYou');
-  if(fc) fc.style.display = 'none';
-  if(ty) ty.style.display = 'block';
-  setTimeout(function(){ document.getElementById('form').scrollIntoView({behavior:'smooth'}); }, 300);
+function submitForm(e) {
+  e.preventDefault();
+  var btn = document.getElementById('submitBtn');
+  var err = document.getElementById('formError');
+  btn.textContent = 'Submitting...';
+  btn.disabled = true;
+  err.style.display = 'none';
+
+  var data = {
+    name: document.getElementById('f_name').value,
+    phone: document.getElementById('f_phone').value,
+    address: document.getElementById('f_address').value,
+    damage_description: document.getElementById('f_damage').value || 'Not specified',
+    _subject: '🚨 HAIL LEAD — ' + document.getElementById('f_name').value + ' — GottaCallJack.com/hail',
+    source: 'gottacalljack.com/hail',
+    submitted: new Date().toLocaleString()
+  };
+
+  fetch('https://formsubmit.co/ajax/jamonjack44@gmail.com', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json','Accept':'application/json'},
+    body: JSON.stringify(data)
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(d){
+    if(d.success) {
+      document.getElementById('formContainer').style.display = 'none';
+      document.getElementById('thankYou').style.display = 'block';
+      document.getElementById('form').scrollIntoView({behavior:'smooth',block:'center'});
+    } else {
+      throw new Error('Form submission failed');
+    }
+  })
+  .catch(function(){
+    err.innerHTML = 'Something went wrong. Please call Chase directly at <a href="tel:3178618557" style="color:#D42B2B;font-weight:700">(317) 861-8557</a> or text your address to that number.';
+    err.style.display = 'block';
+    btn.textContent = 'Get My Free Hail Damage Report →';
+    btn.disabled = false;
+  });
+
+  return false;
 }
 </script>
 
