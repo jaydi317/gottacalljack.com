@@ -1,1 +1,470 @@
-<html><body><h1>Coming Soon — gottacalljack.com</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero Redesign - The Jack of All Trades</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;background:#0A0A0A;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+
+.top-bar{background:#D42B2B;padding:10px 20px;display:flex;justify-content:center;align-items:center;gap:24px}
+.top-bar a{color:#fff;text-decoration:none;font-weight:700;font-size:15px}
+.top-bar .sep{opacity:.4}
+.top-bar .extra{font-size:13px;opacity:.85;font-weight:500}
+
+nav{padding:16px 48px;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,10,.9);border-bottom:1px solid #252525}
+.nav-logo{font-size:22px;font-weight:900}.nav-logo span{color:#D42B2B}
+nav ul{display:flex;gap:28px;list-style:none}
+nav a{color:#888;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;transition:color .3s}
+nav a:hover{color:#fff}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-phone{color:#fff;font-weight:700;font-size:15px;text-decoration:none}
+.nav-cta{background:#D42B2B;color:#fff;padding:10px 24px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;text-transform:uppercase;letter-spacing:.5px}
+
+.hero{padding:80px 48px 100px;position:relative;overflow:hidden;min-height:calc(100vh - 100px)}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#252525,transparent)}
+.hero-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+
+/* Left side */
+.hero-left{position:relative;z-index:2}
+.hero-logo{max-width:280px;margin-bottom:28px;filter:drop-shadow(0 4px 20px rgba(0,0,0,.3))}
+.hero h1{font-size:clamp(42px,5.5vw,72px);font-weight:900;line-height:1.05;margin-bottom:24px;letter-spacing:-2px}
+.hero h1 .accent{color:#D42B2B}
+.hero-sub{font-size:18px;color:#888;line-height:1.7;margin-bottom:36px;max-width:520px}
+.hero-sub strong{color:#fff}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
+.btn-red{background:#D42B2B;color:#fff;padding:18px 40px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all .3s;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-red:hover{background:#B01E1E;transform:translateY(-2px);box-shadow:0 12px 40px rgba(212,43,43,.25)}
+.btn-ghost{background:transparent;color:#fff;padding:18px 40px;border:1px solid #252525;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer;transition:all .3s;text-decoration:none}
+.btn-ghost:hover{border-color:#D42B2B;color:#D42B2B}
+.hero-proof{display:flex;gap:36px}
+.proof{border-left:2px solid #252525;padding-left:18px}
+.proof-num{font-size:32px;font-weight:900;letter-spacing:-1px}
+.proof-label{font-size:11px;color:#888;text-transform:uppercase;letter-spacing:2px;margin-top:2px}
+
+/* Right side — photo showcase */
+.hero-right{position:relative}
+.hero-photo-main{width:100%;aspect-ratio:4/3;border-radius:20px;overflow:hidden;border:1px solid #252525;position:relative}
+.hero-photo-main img{width:100%;height:100%;object-fit:cover}
+.hero-photo-main::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,10,10,.15),transparent 40%);pointer-events:none}
+
+/* Floating review card */
+.hero-review-card{position:absolute;bottom:-24px;left:-24px;background:#1A1A1A;border:1px solid #252525;border-radius:16px;padding:20px 24px;max-width:320px;z-index:3;backdrop-filter:blur(20px)}
+.hero-review-card::before{content:'';position:absolute;top:-1px;left:24px;width:60px;height:3px;background:#D42B2B;border-radius:0 0 4px 4px}
+.review-stars{color:#D42B2B;font-size:14px;letter-spacing:2px;margin-bottom:8px}
+.review-text{font-family:'Crimson Pro',serif;font-style:italic;font-size:15px;color:#AAA;line-height:1.6;margin-bottom:10px}
+.review-author{font-size:12px;font-weight:700;color:#fff}
+.review-loc{font-size:11px;color:#666;margin-top:2px}
+
+/* Floating stats badge */
+.hero-stats-badge{position:absolute;top:20px;right:-16px;background:rgba(26,26,26,.95);border:1px solid #252525;border-radius:14px;padding:16px 20px;z-index:3;backdrop-filter:blur(20px);display:flex;align-items:center;gap:14px}
+.stats-icon{width:44px;height:44px;background:rgba(212,43,43,.12);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#D42B2B;flex-shrink:0}
+.stats-text .num{font-size:20px;font-weight:900;line-height:1}
+.stats-text .label{font-size:11px;color:#666;text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+
+/* Secondary photo thumbnails */
+.hero-thumbs{display:flex;gap:8px;margin-top:16px}
+.hero-thumb{flex:1;height:80px;border-radius:10px;overflow:hidden;border:1px solid #252525;cursor:pointer;transition:all .3s;position:relative}
+.hero-thumb:hover{border-color:#D42B2B}
+.hero-thumb img{width:100%;height:100%;object-fit:cover}
+.hero-thumb .thumb-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(10,10,10,.9),transparent);padding:6px 8px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#AAA}
+
+@media(max-width:1000px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-right{margin-top:40px}
+  nav ul{display:none}.nav-phone{display:none}
+  .hero-review-card{left:16px;bottom:-16px;max-width:280px}
+  .hero-stats-badge{right:16px}
+}
+@media(max-width:600px){
+  .hero{padding:60px 20px 80px}
+  nav{padding:12px 20px}
+  .top-bar .extra{display:none}
+  .hero-proof{flex-wrap:wrap;gap:16px}
+  .hero-thumbs{display:none}
+}
+
+/* MARQUEE */
+.marquee{border-top:1px solid #252525;border-bottom:1px solid #252525;padding:16px 0;overflow:hidden;background:#111}
+.marquee-track{display:flex;gap:48px;animation:scroll 25s linear infinite;white-space:nowrap}
+.marquee-item{display:flex;align-items:center;gap:10px;color:#888;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:2px;flex-shrink:0}
+.marquee-item .dot{color:#D42B2B;font-size:8px}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* HONEY-DO */
+.honeydoo{padding:100px 48px;max-width:1200px;margin:0 auto;text-align:center}
+.honeydoo-tag{font-size:13px;color:#D42B2B;text-transform:uppercase;letter-spacing:3px;font-weight:700;margin-bottom:16px}
+.honeydoo h2{font-size:clamp(28px,4vw,44px);font-weight:900;margin-bottom:20px;letter-spacing:-1px}
+.honeydoo>p{color:#888;font-size:17px;line-height:1.7;max-width:700px;margin:0 auto 48px}
+.honeydoo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.hd-card{background:#1A1A1A;border:1px solid #252525;border-radius:14px;padding:28px 20px;text-align:center;transition:all .4s;cursor:pointer}
+.hd-card:hover{border-color:#D42B2B;transform:translateY(-4px);background:#1E1E1E}
+.hd-icon{font-size:36px;margin-bottom:14px}.hd-card h4{font-size:15px;font-weight:700;margin-bottom:6px}
+.hd-card p{font-size:13px;color:#888;line-height:1.5}
+
+/* STORY */
+.story{padding:120px 48px;background:#111;position:relative}
+.story::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(to bottom,transparent,#D42B2B,transparent)}
+.story-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center}
+.story-visual{position:relative}
+.story-img{width:100%;aspect-ratio:4/5;background:#1A1A1A;border-radius:20px;border:1px solid #252525;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.story-img-text{font-size:18px;color:#888;text-align:center;padding:40px;line-height:1.6}
+.story-badge{position:absolute;bottom:-16px;right:-16px;background:#D42B2B;color:#fff;padding:18px 24px;border-radius:14px;font-weight:900;font-size:18px;box-shadow:0 8px 30px rgba(212,43,43,.3)}
+.story-badge .small{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;opacity:.8}
+.story-tag{font-size:13px;color:#D42B2B;text-transform:uppercase;letter-spacing:3px;font-weight:700;margin-bottom:16px}
+.story h2{font-size:clamp(28px,3.5vw,42px);font-weight:900;line-height:1.15;margin-bottom:24px;letter-spacing:-1px}
+.story p{color:#888;font-size:16px;line-height:1.8;margin-bottom:18px}
+.story-quote{border-left:3px solid #D42B2B;padding:16px 24px;background:#1A1A1A;border-radius:0 12px 12px 0;margin:28px 0}
+.story-quote p{color:#fff;font-family:'Crimson Pro',serif;font-style:italic;font-size:20px;margin:0;line-height:1.6}
+.story-quote cite{display:block;color:#D42B2B;font-size:14px;font-weight:600;font-style:normal;margin-top:8px}
+
+/* SERVICES */
+.services{padding:120px 48px}
+.services-inner{max-width:1400px;margin:0 auto}
+.services-header{text-align:center;margin-bottom:60px}
+.services-header h2{font-size:44px;font-weight:900;letter-spacing:-1px;margin-bottom:12px}
+.services-header p{color:#888;font-size:17px}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.s-card{background:#1A1A1A;border:1px solid #252525;border-radius:14px;overflow:hidden;transition:all .4s;cursor:pointer;position:relative}
+.s-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:#D42B2B;transform:scaleX(0);transition:transform .4s;transform-origin:left;z-index:2}
+.s-card:hover{border-color:rgba(212,43,43,.3);transform:translateY(-4px)}.s-card:hover::after{transform:scaleX(1)}
+.s-card-img{height:200px;overflow:hidden;position:relative}
+.s-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.s-card:hover .s-card-img img{transform:scale(1.05)}
+.s-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,#1A1A1A 0%,transparent 60%)}
+.s-card-body{padding:24px 28px 28px;position:relative;z-index:2;margin-top:-40px}
+.s-card h3{font-size:19px;font-weight:700;margin-bottom:8px}.s-card p{color:#888;font-size:14px;line-height:1.6}
+
+/* GALLERY */
+.gallery{padding:120px 48px;background:#111}
+.gallery-inner{max-width:1400px;margin:0 auto}
+.gallery-header{display:flex;justify-content:space-between;align-items:end;margin-bottom:48px}
+.gallery-header h2{font-size:42px;font-weight:900;letter-spacing:-1px}
+.gallery-header a{color:#D42B2B;text-decoration:none;font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid #D42B2B;padding-bottom:4px}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.g-item{border-radius:14px;position:relative;cursor:pointer;overflow:hidden;transition:all .4s;border:1px solid #252525;height:320px}
+.g-item:first-child{grid-column:span 2;grid-row:span 2;height:100%}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.g-item:hover{border-color:rgba(212,43,43,.3)}.g-item:hover img{transform:scale(1.05)}
+.g-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.9) 0%,transparent 50%);display:flex;flex-direction:column;justify-content:end;padding:24px;opacity:0;transition:opacity .3s}
+.g-item:hover .g-overlay{opacity:1}
+.g-overlay .g-tag{background:#D42B2B;color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:100px;text-transform:uppercase;letter-spacing:1px;display:inline-block;margin-bottom:8px;width:fit-content}
+.g-overlay h4{font-size:18px;font-weight:700}.g-overlay p{color:#AAA;font-size:13px;margin-top:4px}
+.g-label{position:absolute;top:14px;left:14px;z-index:3;background:rgba(212,43,43,.9);color:#fff;font-size:10px;font-weight:700;padding:5px 12px;border-radius:100px;text-transform:uppercase;letter-spacing:1px;backdrop-filter:blur(8px)}
+
+/* FINANCING */
+.financing{padding:80px 48px}
+.financing-inner{max-width:1000px;margin:0 auto;background:linear-gradient(135deg,#1A1A1A,#1E1E1E);border:1px solid #252525;border-radius:20px;padding:60px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;position:relative;overflow:hidden}
+.financing-inner::before{content:'';position:absolute;top:-50%;right:-20%;width:400px;height:400px;background:radial-gradient(circle,rgba(212,43,43,.08),transparent 60%);pointer-events:none}
+.financing h3{font-size:32px;font-weight:900;margin-bottom:12px;letter-spacing:-1px;position:relative}
+.financing p{color:#888;font-size:16px;line-height:1.7;margin-bottom:24px;position:relative}
+.financing .btn-red{position:relative}
+.financing-features{position:relative}
+.fin-feat{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #252525}.fin-feat:last-child{border:none}
+.fin-check{width:28px;height:28px;background:rgba(34,197,94,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#22C55E;font-size:14px;flex-shrink:0}
+.fin-feat span{font-size:15px;color:#AAA}
+
+/* PROCESS */
+.process{padding:100px 48px;background:#111}
+.process-inner{max-width:1200px;margin:0 auto;text-align:center}
+.process-inner h2{font-size:42px;font-weight:900;margin-bottom:12px;letter-spacing:-1px}
+.process-inner>p{color:#888;font-size:17px;margin-bottom:60px}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.p-step{background:#1A1A1A;border:1px solid #252525;border-radius:14px;padding:32px 24px;position:relative}
+.p-num{font-size:48px;font-weight:900;color:#D42B2B;opacity:.2;position:absolute;top:12px;right:16px;line-height:1}
+.p-icon{font-size:28px;margin-bottom:16px}.p-step h4{font-size:16px;font-weight:700;margin-bottom:8px}
+.p-step p{font-size:13px;color:#888;line-height:1.6}
+
+/* REVIEWS */
+.r-card{background:#1A1A1A;border:1px solid #252525;border-radius:16px;padding:32px;transition:all .3s}.r-card:hover{border-color:rgba(212,43,43,.2)}
+.r-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.r-stars{color:#D42B2B;font-size:16px;letter-spacing:2px}
+.r-source{font-size:11px;color:#888;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.r-text{color:#AAA;font-size:16px;line-height:1.7;margin-bottom:20px;font-family:'Crimson Pro',serif;font-style:italic}
+.r-author{font-size:14px;font-weight:700}.r-location{font-size:12px;color:#888;margin-top:2px}
+.reviews{padding:120px 48px}
+.reviews-inner{max-width:1400px;margin:0 auto;text-align:center}
+.reviews h2{font-size:42px;font-weight:900;margin-bottom:12px;letter-spacing:-1px}
+.reviews>p{color:#888;font-size:17px;margin-bottom:48px}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:left}
+
+/* AREAS */
+.areas{padding:80px 48px;text-align:center;background:#111}
+.areas-inner{max-width:1200px;margin:0 auto}
+.areas h2{font-size:36px;font-weight:900;margin-bottom:12px;letter-spacing:-1px}
+.areas>p{color:#888;margin-bottom:36px}
+.area-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.chip{background:#1A1A1A;border:1px solid #252525;padding:10px 24px;border-radius:100px;font-size:14px;font-weight:600;transition:all .3s;cursor:pointer}.chip:hover{border-color:#D42B2B;color:#D42B2B}
+
+/* FINAL CTA */
+.final-cta{padding:120px 48px;text-align:center;position:relative;overflow:hidden}
+.final-cta::before{content:'';position:absolute;top:50%;left:50%;width:800px;height:800px;background:radial-gradient(circle,rgba(212,43,43,.06),transparent 50%);transform:translate(-50%,-50%);pointer-events:none}
+.final-cta h2{font-size:clamp(32px,4.5vw,52px);font-weight:900;margin-bottom:12px;letter-spacing:-2px;position:relative}
+.final-cta>p{color:#888;font-size:18px;margin-bottom:8px;position:relative}
+.final-phone{font-size:clamp(32px,5vw,56px);font-weight:900;color:#D42B2B;margin:20px 0 32px;position:relative;letter-spacing:-1px}
+.final-cta .btn-red{font-size:18px;padding:22px 52px;position:relative}
+.final-trust{display:flex;justify-content:center;gap:32px;margin-top:48px;position:relative;flex-wrap:wrap}
+.ft{color:#888;font-size:13px;display:flex;align-items:center;gap:6px;font-weight:500}
+
+/* FOOTER */
+footer{background:#111;border-top:1px solid #252525;padding:60px 48px 30px}
+.footer-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.footer-brand .logo{font-size:20px;font-weight:900;margin-bottom:12px}.footer-brand .logo span{color:#D42B2B}
+.footer-brand p{color:#888;font-size:13px;line-height:1.6}
+footer h4{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#D42B2B;margin-bottom:14px;font-weight:700}
+footer ul{list-style:none}footer li{margin-bottom:7px}
+footer a{color:#888;text-decoration:none;font-size:13px;transition:color .3s}footer a:hover{color:#fff}
+.footer-bottom{max-width:1400px;margin:36px auto 0;padding-top:20px;border-top:1px solid #252525;display:flex;justify-content:space-between;font-size:12px;color:#888;flex-wrap:wrap;gap:8px}
+.mobile-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;background:#0A0A0A;border-top:1px solid #252525;padding:12px 16px;gap:10px}
+.mobile-cta a{flex:1;text-align:center;padding:14px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none}
+.mobile-cta .call{background:#1A1A1A;color:#fff;border:1px solid #252525}
+.mobile-cta .estimate{background:#D42B2B;color:#fff}
+
+/* RESPONSIVE */
+@media(max-width:1000px){.story-inner,.financing-inner,.footer-grid{grid-template-columns:1fr}.services-grid,.reviews-grid{grid-template-columns:1fr 1fr}.gallery-grid{grid-template-columns:1fr 1fr}.g-item:first-child{grid-column:span 2}.g-item{height:240px}.honeydoo-grid{grid-template-columns:1fr 1fr}.process-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.services-grid,.reviews-grid,.honeydoo-grid,.process-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr}.g-item:first-child{grid-column:span 1}.story,.services,.gallery,.reviews,.final-cta,.areas,.process,.financing,.honeydoo{padding-left:20px;padding-right:20px}.mobile-cta{display:flex}footer{padding-bottom:80px}.s-card-img{height:160px}}
+
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a href="tel:3178618557">📞 (317) 861-8557</a>
+  <span class="sep">|</span>
+  <span class="extra">Free Estimates on Every Project • Licensed & Insured • IN License #9186</span>
+</div>
+
+<nav>
+  <div class="nav-logo">The Jack of All <span>Trades</span></div>
+  <ul>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Our Work</a></li>
+    <li><a href="#">About Chase</a></li>
+    <li><a href="#">Areas</a></li>
+    <li><a href="#">Reviews</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="tel:3178618557" class="nav-phone">📞 (317) 861-8557</a>
+    <a href="#" class="nav-cta">Free Estimate</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <img src="chase-logo.png" alt="The Jack of All Trades" class="hero-logo">
+      <h1>Your Home.<br>Your <span class="accent">Honey-Do</span><br>List. Done.</h1>
+      <p class="hero-sub"><strong>Kitchen remodels. Bathrooms. Carpentry. Decks. Flooring. Roofing. Painting.</strong> Whatever your home needs, Chase and his crew handle it with obsessive attention to detail.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn-red">Get Your Free Estimate →</a>
+        <a href="#" class="btn-ghost">See Our Work</a>
+      </div>
+      <div class="hero-proof">
+        <div class="proof"><div class="proof-num">500+</div><div class="proof-label">Projects Done</div></div>
+        <div class="proof"><div class="proof-num">15+</div><div class="proof-label">Years Building</div></div>
+        <div class="proof"><div class="proof-num">5.0★</div><div class="proof-label">Customer Rating</div></div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-photo-main">
+        <img src="kitchen-1.png" alt="Beautiful kitchen remodel by The Jack of All Trades - white cabinets, quartz countertops, gold hardware">
+      </div>
+
+      <!-- Floating review card -->
+      <div class="hero-review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Jack and his crew are amazing! They did my kitchen, tiled my floors, and my bathroom. Highly recommend!"</p>
+        <div class="review-author">Verified Homeowner</div>
+        <div class="review-loc">Fishers, IN</div>
+      </div>
+
+      <!-- Floating stats badge -->
+      <div class="hero-stats-badge">
+        <div class="stats-icon">🛡️</div>
+        <div class="stats-text">
+          <div class="num">Licensed & Insured</div>
+          <div class="label">IN License #9186</div>
+        </div>
+      </div>
+
+      <!-- Thumbnail row -->
+      <div class="hero-thumbs">
+        <div class="hero-thumb">
+          <img src="bathroom-1.png" alt="Bathroom remodel">
+          <div class="thumb-label">Bathrooms</div>
+        </div>
+        <div class="hero-thumb">
+          <img src="carpentry-1.png" alt="Custom built-ins">
+          <div class="thumb-label">Carpentry</div>
+        </div>
+        <div class="hero-thumb">
+          <img src="flooring-1.png" alt="Hardwood flooring">
+          <div class="thumb-label">Flooring</div>
+        </div>
+        <div class="hero-thumb">
+          <img src="deck-1.png" alt="Custom deck">
+          <div class="thumb-label">Decks</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee"><div class="marquee-track">
+  <div class="marquee-item">Kitchens <span class="dot">●</span></div><div class="marquee-item">Bathrooms <span class="dot">●</span></div><div class="marquee-item">Carpentry <span class="dot">●</span></div><div class="marquee-item">Roofing <span class="dot">●</span></div><div class="marquee-item">Flooring <span class="dot">●</span></div><div class="marquee-item">Painting <span class="dot">●</span></div><div class="marquee-item">Decks & Fences <span class="dot">●</span></div><div class="marquee-item">Free Estimates <span class="dot">●</span></div><div class="marquee-item">Licensed & Insured <span class="dot">●</span></div>
+  <div class="marquee-item">Kitchens <span class="dot">●</span></div><div class="marquee-item">Bathrooms <span class="dot">●</span></div><div class="marquee-item">Carpentry <span class="dot">●</span></div><div class="marquee-item">Roofing <span class="dot">●</span></div><div class="marquee-item">Flooring <span class="dot">●</span></div><div class="marquee-item">Painting <span class="dot">●</span></div><div class="marquee-item">Decks & Fences <span class="dot">●</span></div><div class="marquee-item">Free Estimates <span class="dot">●</span></div><div class="marquee-item">Licensed & Insured <span class="dot">●</span></div>
+</div></div>
+
+<section class="honeydoo">
+  <div class="honeydoo-tag">What's on Your List?</div>
+  <h2>Got a Honey-Do List? Consider It Done.</h2>
+  <p>Whether it's a full kitchen remodel or that leaky faucet you've been ignoring for six months, we handle it all. No job too big, no detail too small.</p>
+  <div class="honeydoo-grid">
+    <div class="hd-card"><div class="hd-icon">🍳</div><h4>Kitchen Remodel</h4><p>Complete transformations with custom cabinets & countertops</p></div>
+    <div class="hd-card"><div class="hd-icon">🚿</div><h4>Bathroom Remodel</h4><p>Tile, vanities, fixtures — modern or classic</p></div>
+    <div class="hd-card"><div class="hd-icon">🪵</div><h4>Carpentry</h4><p>Crown molding, trim, built-ins, rough & finish</p></div>
+    <div class="hd-card"><div class="hd-icon">🏠</div><h4>Roofing</h4><p>Repairs & replacements, insurance support</p></div>
+    <div class="hd-card"><div class="hd-icon">🪟</div><h4>Flooring</h4><p>Hardwood, laminate, tile — fast turnaround</p></div>
+    <div class="hd-card"><div class="hd-icon">🎨</div><h4>Painting</h4><p>Interior & exterior, clean lines, pro prep</p></div>
+    <div class="hd-card"><div class="hd-icon">🌿</div><h4>Decks & Fences</h4><p>Custom outdoor oasis, wood & composite</p></div>
+    <div class="hd-card"><div class="hd-icon">📷</div><h4>Low Voltage</h4><p>Cameras, access control, speakers, wiring</p></div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="story-inner">
+    <div class="story-visual">
+      <div class="story-img"><div class="story-img-text">📸<br><br><strong>Chase's Photo</strong><br>On the jobsite, tool in hand.<br><em>We'll capture this in our session.</em></div></div>
+      <div class="story-badge"><div style="font-size:28px;line-height:1">Age 9</div><div class="small">When it all started</div></div>
+    </div>
+    <div>
+      <div class="story-tag">Meet Chase</div>
+      <h2>Most Contractors Have a Business.<br>Chase Has a Calling.</h2>
+      <p>At 9 years old, while his dad was at the hardware store picking up spare parts, Chase rewired the family garbage disposal. By himself. His dad came home to find it working perfectly and a kid covered in grease with the biggest grin you've ever seen.</p>
+      <p>That was the moment. Chase hasn't put a tool down since.</p>
+      <p>What started as a kid who couldn't stop fixing things became a career built on one core belief: <strong>the small details are what separate good from unforgettable.</strong></p>
+      <div class="story-quote">
+        <p>"I pride myself on my detail-oriented nature, because I know that the fine details are what make a project shine and stand out from those like it."</p>
+        <cite>— Chase Jack, Owner & Founder</cite>
+      </div>
+      <p>Today, The Jack of All Trades serves homeowners across Indianapolis, Fishers, Carmel, Noblesville, and all of Hamilton County.</p>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="services-header"><h2>What We Build</h2><p>Full-service contracting for every room, surface, and detail in your home.</p></div>
+    <div class="services-grid">
+      <div class="s-card"><div class="s-card-img"><img src="kitchen-1.png" alt="Kitchen Remodel Indianapolis"><div class="s-card-overlay"></div></div><div class="s-card-body"><h3>Kitchen Remodels</h3><p>The heart of your home rebuilt beautifully. Custom cabinets, countertops, plumbing, appliances, flooring — the complete package.</p></div></div>
+      <div class="s-card"><div class="s-card-img"><img src="bathroom-1.png" alt="Bathroom Remodel Indianapolis"><div class="s-card-overlay"></div></div><div class="s-card-body"><h3>Bathroom Remodels</h3><p>From quick refreshes to complete gut-and-rebuilds. Walk-in showers, vanities, tile — all installed with precision.</p></div></div>
+      <div class="s-card"><div class="s-card-img"><img src="carpentry-1.png" alt="Finish Carpentry Indianapolis"><div class="s-card-overlay"></div></div><div class="s-card-body"><h3>Finish Carpentry</h3><p>Custom built-ins, crown molding, trim, shelving. The finishing touches that make a house feel like home.</p></div></div>
+      <div class="s-card"><div class="s-card-img"><img src="flooring-1.png" alt="Flooring Installation Indianapolis"><div class="s-card-overlay"></div></div><div class="s-card-body"><h3>Flooring</h3><p>Hardwood, laminate, and tile installed with fast turnaround so your family's life isn't disrupted.</p></div></div>
+      <div class="s-card"><div class="s-card-img"><img src="deck-1.png" alt="Deck Building Indianapolis"><div class="s-card-overlay"></div></div><div class="s-card-body"><h3>Decks & Outdoor</h3><p>Custom decks, privacy fences, pergolas, and outdoor oasis structures built to handle Indiana weather.</p></div></div>
+      <div class="s-card"><div class="s-card-img"><img src="kitchen-2.png" alt="Kitchen Island Remodel"><div class="s-card-overlay"></div></div><div class="s-card-body"><h3>General Contracting</h3><p>Roofing, painting, low voltage systems, and everything in between. No job too big, no detail too small.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="gallery-inner">
+    <div class="gallery-header"><h2>Our Work</h2><a href="#">View All Projects →</a></div>
+    <div class="gallery-grid">
+      <div class="g-item"><div class="g-label">Featured</div><img src="kitchen-1.png" alt="Kitchen Remodel"><div class="g-overlay"><div class="g-tag">Kitchen</div><h4>Complete Kitchen Transformation</h4><p>Custom cabinets, quartz countertops, herringbone backsplash</p></div></div>
+      <div class="g-item"><img src="bathroom-1.png" alt="Bathroom Remodel"><div class="g-overlay"><div class="g-tag">Bathroom</div><h4>Modern Master Bath</h4><p>Walk-in shower, vessel sinks, custom tile</p></div></div>
+      <div class="g-item"><img src="carpentry-1.png" alt="Custom Built-Ins"><div class="g-overlay"><div class="g-tag">Carpentry</div><h4>Custom Arched Built-Ins</h4><p>Oak shelving with brass lighting</p></div></div>
+      <div class="g-item"><img src="flooring-1.png" alt="Hardwood Flooring"><div class="g-overlay"><div class="g-tag">Flooring</div><h4>Hardwood Throughout</h4><p>Cherry hardwood, open concept living</p></div></div>
+      <div class="g-item"><img src="deck-1.png" alt="Custom Deck"><div class="g-overlay"><div class="g-tag">Outdoor</div><h4>Custom Wood Deck</h4><p>Multi-level with railing and landscaping</p></div></div>
+      <div class="g-item"><img src="kitchen-2.png" alt="Kitchen with Island"><div class="g-overlay"><div class="g-tag">Kitchen</div><h4>Kitchen with Butcher Block Island</h4><p>Two-tone cabinets, granite, hardwood floors</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="financing">
+  <div class="financing-inner">
+    <div>
+      <h3>Don't Let Budget Hold You Back</h3>
+      <p>We offer flexible financing options so you can get the home improvements you need today and pay over time. Check your rate with no impact to your credit score.</p>
+      <a href="#" class="btn-red">Check Your Rate →</a>
+    </div>
+    <div class="financing-features">
+      <div class="fin-feat"><div class="fin-check">✓</div><span>No impact to your credit score to check rate</span></div>
+      <div class="fin-feat"><div class="fin-check">✓</div><span>Multiple payment plan options</span></div>
+      <div class="fin-feat"><div class="fin-check">✓</div><span>Competitive interest rates</span></div>
+      <div class="fin-feat"><div class="fin-check">✓</div><span>Quick and easy online application</span></div>
+      <div class="fin-feat"><div class="fin-check">✓</div><span>Projects from $1,000 to $100,000</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="process-inner">
+    <h2>How It Works</h2>
+    <p>From your first call to your finished project — simple, transparent, no surprises.</p>
+    <div class="process-grid">
+      <div class="p-step"><div class="p-num">01</div><div class="p-icon">📞</div><h4>Call or Request Estimate</h4><p>Reach out and tell us about your project. We'll schedule a time to visit.</p></div>
+      <div class="p-step"><div class="p-num">02</div><div class="p-icon">📋</div><h4>Free On-Site Estimate</h4><p>We visit, listen to your vision, and provide an honest, detailed estimate.</p></div>
+      <div class="p-step"><div class="p-num">03</div><div class="p-icon">🔨</div><h4>Build with Communication</h4><p>Our crew gets to work. You'll always know what's happening and when.</p></div>
+      <div class="p-step"><div class="p-num">04</div><div class="p-icon">🤝</div><h4>Final Walkthrough</h4><p>We don't finish until you're 100% satisfied. Every detail inspected.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="reviews-inner">
+    <h2>What Homeowners Are Saying</h2>
+    <p>Real reviews from real customers across Indianapolis.</p>
+    <div class="reviews-grid">
+      <div class="r-card"><div class="r-header"><div class="r-stars">★★★★★</div><div class="r-source">Yelp</div></div><p class="r-text">"Chase is courteous, knowledgeable, and provided great service. He provided a reasonable price and was able to schedule the work to fit my availability. I will certainly reach out in the future."</p><div class="r-author">Verified Homeowner</div><div class="r-location">Indianapolis, IN</div></div>
+      <div class="r-card"><div class="r-header"><div class="r-stars">★★★★★</div><div class="r-source">Verified</div></div><p class="r-text">"We found The Jack of All Trades to save the day! Our previous contractor left us with a demolished bathroom. They're outstandingly professional and detail oriented. Extremely respectful."</p><div class="r-author">Verified Homeowner</div><div class="r-location">Hamilton County, IN</div></div>
+      <div class="r-card"><div class="r-header"><div class="r-stars">★★★★★</div><div class="r-source">Verified</div></div><p class="r-text">"The remodeling team transformed our outdated kitchen into a modern and functional space. Their attention to detail and workmanship was awesome!"</p><div class="r-author">Verified Homeowner</div><div class="r-location">Fishers, IN</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="areas" id="areas">
+  <div class="areas-inner">
+    <h2>Serving Central Indiana</h2>
+    <p>Available throughout the Indianapolis metro area and Hamilton County.</p>
+    <div class="area-chips">
+      <div class="chip">📍 Indianapolis</div><div class="chip">📍 Fishers</div><div class="chip">📍 Carmel</div><div class="chip">📍 Noblesville</div><div class="chip">📍 Westfield</div><div class="chip">📍 Zionsville</div><div class="chip">📍 Greenwood</div><div class="chip">📍 Lawrence</div><div class="chip">📍 Brownsburg</div><div class="chip">📍 Avon</div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta" id="contact">
+  <h2>Ready to Cross It Off the List?</h2>
+  <p>Free estimates. No pressure. Just honest advice from a guy who's been building since he was 9.</p>
+  <div class="final-phone">(317) 861-8557</div>
+  <a href="tel:3178618557" class="btn-red">Call Now for Your Free Estimate →</a>
+  <div class="final-trust">
+    <div class="ft"><span>🛡️</span> Licensed & Insured</div>
+    <div class="ft"><span>📋</span> IN License #9186</div>
+    <div class="ft"><span>⭐</span> 5-Star Rated</div>
+    <div class="ft"><span>💰</span> Free Estimates</div>
+    <div class="ft"><span>💳</span> Financing Available</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="logo">The Jack of All <span>Trades</span></div><p>General contracting, remodeling, and home improvement for Indianapolis, Fishers, Carmel, Noblesville, Westfield, Zionsville, and all of Hamilton County, Indiana. Master of your Honey-Do List since day one.</p></div>
+    <div><h4>Services</h4><ul><li><a href="#">Kitchen Remodels</a></li><li><a href="#">Bathroom Remodels</a></li><li><a href="#">Finish Carpentry</a></li><li><a href="#">Roofing</a></li><li><a href="#">Flooring</a></li><li><a href="#">Painting</a></li><li><a href="#">Decks & Fences</a></li><li><a href="#">Low Voltage</a></li></ul></div>
+    <div><h4>Areas Served</h4><ul><li><a href="#">Indianapolis</a></li><li><a href="#">Fishers</a></li><li><a href="#">Carmel</a></li><li><a href="#">Noblesville</a></li><li><a href="#">Westfield</a></li><li><a href="#">Zionsville</a></li></ul></div>
+    <div><h4>Connect</h4><ul><li><a href="#">Facebook</a></li><li><a href="#">Instagram</a></li><li><a href="#">TikTok</a></li><li><a href="#">Google Reviews</a></li><li><a href="#">Houzz</a></li><li><a href="#">Yelp</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 The Jack of All Trades. All rights reserved.</span><span>Home Improvement License #9186 | Fully Licensed & Insured in Indiana</span></div>
+</footer>
+
+<div class="mobile-cta">
+  <a href="tel:3178618557" class="call">📞 Call Now</a>
+  <a href="#contact" class="estimate">Free Estimate</a>
+</div>
+
+
+</body>
+</html>

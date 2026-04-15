@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Hail Damage Inspection | Marion & Grant County | The Jack of All Trades</title>
+<meta name="description" content="Free hail damage inspections for Marion and Grant County homeowners. Licensed Indiana contractor. Roof, siding, and exterior inspection with written report for your insurance claim.">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;background:#0A0A0A;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* URGENT TOP BAR */
+.urgent-bar{background:#D42B2B;padding:12px 20px;text-align:center;font-weight:700;font-size:15px;letter-spacing:.5px;animation:pulse-bg 2s ease-in-out infinite}
+.urgent-bar span{opacity:.7;font-weight:500;font-size:13px}
+@keyframes pulse-bg{0%,100%{background:#D42B2B}50%{background:#B01E1E}}
+
+/* NAV - minimal for landing page */
+nav{padding:16px 48px;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,10,.95);border-bottom:1px solid #252525}
+.nav-logo{font-size:22px;font-weight:900}.nav-logo span{color:#D42B2B}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-phone{color:#fff;font-weight:700;font-size:15px}
+.nav-cta{background:#D42B2B;color:#fff;padding:10px 24px;border-radius:8px;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.5px;transition:all .3s}
+.nav-cta:hover{background:#B01E1E}
+
+/* HERO */
+.hero{padding:80px 48px 100px;position:relative;overflow:hidden;text-align:center}
+.hero::before{content:'';position:absolute;top:0;left:50%;width:1000px;height:1000px;background:radial-gradient(circle,rgba(212,43,43,.08),transparent 50%);transform:translate(-50%,-30%);pointer-events:none}
+.hero-inner{max-width:800px;margin:0 auto;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(212,43,43,.12);border:1px solid rgba(212,43,43,.3);padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;color:#D42B2B;margin-bottom:28px;text-transform:uppercase;letter-spacing:1px}
+.hero h1{font-size:clamp(36px,6vw,64px);font-weight:900;line-height:1.08;margin-bottom:24px;letter-spacing:-2px}
+.hero h1 .accent{color:#D42B2B}
+.hero h1 .location{display:block;font-size:clamp(20px,3vw,32px);color:#888;font-weight:600;letter-spacing:0;margin-top:8px}
+.hero-sub{font-size:18px;color:#888;line-height:1.7;margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto}
+.hero-sub strong{color:#fff}
+.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+.btn-red{background:#D42B2B;color:#fff;padding:20px 44px;border:none;border-radius:10px;font-size:18px;font-weight:700;cursor:pointer;transition:all .3s;display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif}
+.btn-red:hover{background:#B01E1E;transform:translateY(-2px);box-shadow:0 12px 40px rgba(212,43,43,.25)}
+.btn-ghost{background:transparent;color:#fff;padding:20px 44px;border:1px solid #252525;border-radius:10px;font-size:18px;font-weight:600;cursor:pointer;transition:all .3s}
+.btn-ghost:hover{border-color:#D42B2B;color:#D42B2B}
+.hero-phone{font-size:clamp(28px,4vw,44px);font-weight:900;color:#D42B2B;margin-bottom:16px;letter-spacing:-1px}
+.hero-phone-secondary{font-size:16px;color:#888;margin-bottom:32px}
+.hero-trust{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:32px}
+.hero-trust-item{display:flex;align-items:center;gap:8px;color:#888;font-size:13px;font-weight:600}
+.hero-trust-item .icon{font-size:18px}
+
+/* INSURANCE SECTION */
+.insurance{padding:80px 48px;background:#111;border-top:1px solid #252525;border-bottom:1px solid #252525}
+.insurance-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.insurance-content h2{font-size:32px;font-weight:900;margin-bottom:16px;letter-spacing:-1px;line-height:1.15}
+.insurance-content h2 .accent{color:#D42B2B}
+.insurance-content p{color:#888;font-size:16px;line-height:1.8;margin-bottom:16px}
+.insurance-content p strong{color:#fff}
+.insurance-steps{display:flex;flex-direction:column;gap:12px}
+.ins-step{background:#1A1A1A;border:1px solid #252525;border-radius:14px;padding:20px 24px;display:flex;align-items:center;gap:16px;transition:all .3s}
+.ins-step:hover{border-color:rgba(212,43,43,.3)}
+.ins-num{width:40px;height:40px;background:rgba(212,43,43,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#D42B2B;font-size:18px;flex-shrink:0}
+.ins-text h4{font-size:15px;font-weight:700;margin-bottom:2px}
+.ins-text p{color:#888;font-size:13px;margin:0;line-height:1.5}
+
+/* STORM CHASER WARNING */
+.warning{padding:100px 48px}
+.warning-inner{max-width:1000px;margin:0 auto;text-align:center}
+.warning h2{font-size:clamp(28px,4vw,40px);font-weight:900;margin-bottom:16px;letter-spacing:-1px}
+.warning>p{color:#888;font-size:17px;margin-bottom:48px;max-width:700px;margin-left:auto;margin-right:auto;line-height:1.7}
+.comparison{display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:left}
+.comp-card{border-radius:16px;padding:36px 32px;border:1px solid #252525}
+.comp-card.bad{background:rgba(220,38,38,.04);border-color:rgba(220,38,38,.2)}
+.comp-card.good{background:rgba(34,197,94,.04);border-color:rgba(34,197,94,.2)}
+.comp-card h3{font-size:20px;font-weight:800;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.comp-card.bad h3{color:#EF4444}
+.comp-card.good h3{color:#22C55E}
+.comp-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.comp-list li{display:flex;align-items:start;gap:10px;font-size:15px;color:#AAA;line-height:1.5}
+.comp-list .icon{font-size:16px;flex-shrink:0;margin-top:2px}
+
+/* WHAT YOU GET */
+.inspection{padding:100px 48px;background:#111;border-top:1px solid #252525}
+.inspection-inner{max-width:900px;margin:0 auto;text-align:center}
+.inspection h2{font-size:clamp(28px,4vw,40px);font-weight:900;margin-bottom:16px;letter-spacing:-1px}
+.inspection>p{color:#888;font-size:17px;margin-bottom:48px;line-height:1.7}
+.insp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center;margin-bottom:48px}
+.insp-card{background:#1A1A1A;border:1px solid #252525;border-radius:14px;padding:28px 20px;transition:all .3s}
+.insp-card:hover{border-color:rgba(212,43,43,.3);transform:translateY(-4px)}
+.insp-card .icon{font-size:36px;margin-bottom:14px}
+.insp-card h4{font-size:15px;font-weight:700;margin-bottom:6px}
+.insp-card p{font-size:13px;color:#888;line-height:1.5}
+
+/* REVIEWS */
+.reviews{padding:80px 48px}
+.reviews-inner{max-width:1000px;margin:0 auto;text-align:center}
+.reviews h2{font-size:32px;font-weight:900;margin-bottom:12px;letter-spacing:-1px}
+.reviews>p{color:#888;font-size:16px;margin-bottom:36px}
+.reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;text-align:left}
+.r-card{background:#1A1A1A;border:1px solid #252525;border-radius:16px;padding:28px;transition:all .3s}
+.r-card:hover{border-color:rgba(212,43,43,.2)}
+.r-stars{color:#D42B2B;font-size:16px;letter-spacing:2px;margin-bottom:12px}
+.r-text{color:#AAA;font-size:15px;line-height:1.7;margin-bottom:14px;font-family:'Crimson Pro',serif;font-style:italic}
+.r-author{font-size:13px;font-weight:700}
+.r-location{font-size:12px;color:#888;margin-top:2px}
+
+/* FINAL CTA */
+.final-cta{padding:100px 48px;text-align:center;position:relative;overflow:hidden;background:#111;border-top:1px solid #252525}
+.final-cta::before{content:'';position:absolute;top:50%;left:50%;width:800px;height:800px;background:radial-gradient(circle,rgba(212,43,43,.08),transparent 50%);transform:translate(-50%,-50%);pointer-events:none}
+.final-cta h2{font-size:clamp(28px,4.5vw,48px);font-weight:900;margin-bottom:12px;letter-spacing:-2px;position:relative}
+.final-cta>p{color:#888;font-size:17px;margin-bottom:8px;position:relative;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.7}
+.final-phone{font-size:clamp(32px,5vw,56px);font-weight:900;color:#D42B2B;margin:20px 0 8px;position:relative;letter-spacing:-1px}
+.final-phone-2{font-size:20px;color:#888;margin-bottom:32px;position:relative}
+.final-cta .btn-red{font-size:18px;padding:22px 52px;position:relative}
+.final-trust{display:flex;justify-content:center;gap:28px;margin-top:40px;position:relative;flex-wrap:wrap}
+.ft{color:#888;font-size:13px;display:flex;align-items:center;gap:6px;font-weight:500}
+.final-site{margin-top:32px;position:relative}
+.final-site a{color:#D42B2B;font-weight:600;font-size:15px;border-bottom:2px solid rgba(212,43,43,.3);padding-bottom:4px;transition:all .3s}
+.final-site a:hover{border-color:#D42B2B}
+
+/* FOOTER */
+footer{border-top:1px solid #252525;padding:24px 48px;text-align:center}
+.footer-inner{max-width:900px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-inner span{font-size:12px;color:#888}
+
+/* MOBILE CTA BAR */
+.mobile-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;background:#0A0A0A;border-top:1px solid #252525;padding:12px 16px;gap:10px}
+.mobile-cta a{flex:1;text-align:center;padding:14px;border-radius:10px;font-weight:700;font-size:14px}
+.mobile-cta .call{background:#1A1A1A;color:#fff;border:1px solid #252525}
+.mobile-cta .estimate{background:#D42B2B;color:#fff}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+  .insurance-inner{grid-template-columns:1fr}
+  .comparison{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  nav{padding:12px 20px}
+  .nav-phone{display:none}
+  .hero{padding:60px 20px 80px}
+  .insp-grid{grid-template-columns:1fr}
+  .reviews-grid{grid-template-columns:1fr}
+  .warning,.insurance,.inspection,.reviews,.final-cta{padding-left:20px;padding-right:20px}
+  .mobile-cta{display:flex}
+  footer{padding-bottom:80px;padding-left:20px;padding-right:20px}
+  .footer-inner{justify-content:center;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- URGENCY BAR -->
+<div class="urgent-bar">
+  ⚠️ HAIL STORM ALERT — FREE Inspections Available Now for Marion & Grant County
+  <span> | Limited Availability This Week</span>
+</div>
+
+<!-- MINIMAL NAV -->
+<nav>
+  <a href="https://gottacalljack.com" class="nav-logo">The Jack of All <span>Trades</span></a>
+  <div class="nav-right">
+    <a href="tel:3178618557" class="nav-phone">📞 (317) 861-8557</a>
+    <a href="tel:3178618557" class="nav-cta">Call Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">⚡ Hail Damage Response Team</div>
+    <h1>Your Roof Took a <span class="accent">Beating.</span>
+    <span class="location">Marion & Grant County Hail Damage Inspections</span></h1>
+    <p class="hero-sub">Hail damage isn't always visible from the ground — but it's up there. <strong>Cracked shingles, dented flashing, bruised siding.</strong> Left alone, it becomes roof leaks, water damage, and a much bigger bill. Get a free inspection before the next rain finds the problem for you.</p>
+
+    <div class="hero-phone"><a href="tel:3178618557" style="color:inherit">(317) 861-8557</a></div>
+    <div class="hero-phone-secondary">or text/call <a href="tel:3174575809" style="color:#D42B2B;font-weight:700">(317) 457-5809</a></div>
+
+    <div class="hero-actions">
+      <a href="tel:3178618557" class="btn-red">📞 Call for Free Inspection</a>
+      <a href="sms:3178618557?body=Hi%20Chase%2C%20I%20need%20a%20hail%20damage%20inspection.%20My%20address%20is%3A%20" class="btn-ghost">💬 Text Us Your Address</a>
+    </div>
+
+    <div class="hero-trust">
+      <div class="hero-trust-item"><span class="icon">🛡️</span> Licensed & Insured</div>
+      <div class="hero-trust-item"><span class="icon">📋</span> IN License #9186</div>
+      <div class="hero-trust-item"><span class="icon">📍</span> Local Indiana Contractor</div>
+      <div class="hero-trust-item"><span class="icon">💰</span> 100% Free — No Obligation</div>
+    </div>
+  </div>
+</section>
+
+<!-- INSURANCE EDUCATION -->
+<section class="insurance">
+  <div class="insurance-inner">
+    <div class="insurance-content">
+      <h2>Your Insurance <span class="accent">Probably Covers This.</span></h2>
+      <p>Most homeowners don't realize that <strong>hail damage is typically covered by your homeowner's insurance.</strong> You may only be responsible for your deductible.</p>
+      <p>But insurance companies have <strong>deadlines for filing claims,</strong> and you need a professional inspection report to back up your claim. That's exactly what we provide — free.</p>
+    </div>
+    <div class="insurance-steps">
+      <div class="ins-step">
+        <div class="ins-num">1</div>
+        <div class="ins-text"><h4>We Inspect Your Property</h4><p>Roof, siding, gutters, windows — we check everything.</p></div>
+      </div>
+      <div class="ins-step">
+        <div class="ins-num">2</div>
+        <div class="ins-text"><h4>You Get a Written Report</h4><p>Detailed documentation with photos for your insurance company.</p></div>
+      </div>
+      <div class="ins-step">
+        <div class="ins-num">3</div>
+        <div class="ins-text"><h4>We Help With Your Claim</h4><p>We'll walk you through the insurance process step by step.</p></div>
+      </div>
+      <div class="ins-step">
+        <div class="ins-num">4</div>
+        <div class="ins-text"><h4>Repairs Done Right</h4><p>Licensed, insured, warranty-backed work by a local crew.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORM CHASER WARNING -->
+<section class="warning">
+  <div class="warning-inner">
+    <h2>After Every Storm, They Show Up.<br>Know the Difference.</h2>
+    <p>Within 48 hours of a hail event, out-of-state "storm chaser" crews flood the area knocking on doors. They offer low prices, do fast work, and disappear. Here's how to protect yourself.</p>
+    <div class="comparison">
+      <div class="comp-card bad">
+        <h3>🚫 The Storm Chasers</h3>
+        <ul class="comp-list">
+          <li><span class="icon">❌</span> Out-of-state crews — here today, gone tomorrow</li>
+          <li><span class="icon">❌</span> No local license or accountability</li>
+          <li><span class="icon">❌</span> Pressure you to sign on the spot</li>
+          <li><span class="icon">❌</span> Cut corners to maximize profit per stop</li>
+          <li><span class="icon">❌</span> Good luck calling them when it leaks next year</li>
+          <li><span class="icon">❌</span> No warranty you can actually enforce</li>
+        </ul>
+      </div>
+      <div class="comp-card good">
+        <h3>✅ The Jack of All Trades</h3>
+        <ul class="comp-list">
+          <li><span class="icon">✓</span> Indiana-licensed contractor (License #9186)</li>
+          <li><span class="icon">✓</span> Based right here in Central Indiana</li>
+          <li><span class="icon">✓</span> No pressure — free inspection, written report, your decision</li>
+          <li><span class="icon">✓</span> Obsessive attention to detail on every job</li>
+          <li><span class="icon">✓</span> We'll be here next year, and the year after that</li>
+          <li><span class="icon">✓</span> Fully insured with workmanship warranty</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="inspection">
+  <div class="inspection-inner">
+    <h2>Your Free Inspection Includes</h2>
+    <p>No charge. No obligation. No sales pressure. Just an honest assessment from a licensed professional.</p>
+    <div class="insp-grid">
+      <div class="insp-card">
+        <div class="icon">🏠</div>
+        <h4>Full Roof Inspection</h4>
+        <p>We check every shingle, flashing point, ridge cap, and vent for hail impact damage.</p>
+      </div>
+      <div class="insp-card">
+        <div class="icon">🧱</div>
+        <h4>Siding & Exterior Check</h4>
+        <p>Vinyl, aluminum, and wood siding are all vulnerable. We inspect every side of your home.</p>
+      </div>
+      <div class="insp-card">
+        <div class="icon">📝</div>
+        <h4>Written Report with Photos</h4>
+        <p>Professional documentation you can hand directly to your insurance adjuster.</p>
+      </div>
+    </div>
+    <a href="tel:3178618557" class="btn-red">📞 Schedule Your Free Inspection</a>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="reviews-inner">
+    <h2>What Homeowners Say About Our Work</h2>
+    <p>Real reviews from real customers across Indianapolis and Central Indiana.</p>
+    <div class="reviews-grid">
+      <div class="r-card">
+        <div class="r-stars">★★★★★</div>
+        <p class="r-text">"We found The Jack of All Trades to save the day! Our previous contractor left us with a demolished bathroom. They're outstandingly professional and detail oriented. Extremely respectful."</p>
+        <div class="r-author">Verified Homeowner</div>
+        <div class="r-location">Hamilton County, IN</div>
+      </div>
+      <div class="r-card">
+        <div class="r-stars">★★★★★</div>
+        <p class="r-text">"Chase is courteous, knowledgeable, and provided great service. Reasonable price and was able to schedule the work to fit my availability. Will certainly reach out in the future."</p>
+        <div class="r-author">Verified Homeowner</div>
+        <div class="r-location">Indianapolis, IN</div>
+      </div>
+      <div class="r-card">
+        <div class="r-stars">★★★★★</div>
+        <p class="r-text">"Quality workmanship and a fair price. Always my first choice."</p>
+        <div class="r-author">Verified Homeowner</div>
+        <div class="r-location">Central Indiana</div>
+      </div>
+      <div class="r-card">
+        <div class="r-stars">★★★★★</div>
+        <p class="r-text">"Jack and his crew are amazing! Did my kitchen, tiled my floors, and my bathroom. Highly recommend!"</p>
+        <div class="r-author">Verified Homeowner</div>
+        <div class="r-location">Fishers, IN</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Don't Wait for the Next Rain<br>to Find the Problem.</h2>
+  <p>Hail damage gets worse over time. What starts as a cracked shingle turns into a roof leak, then water damage, then mold. Get ahead of it now — for free.</p>
+  <div class="final-phone"><a href="tel:3178618557" style="color:inherit">(317) 861-8557</a></div>
+  <div class="final-phone-2">or <a href="tel:3174575809" style="color:#D42B2B;font-weight:700">(317) 457-5809</a></div>
+  <a href="tel:3178618557" class="btn-red">📞 Call Chase — Free Inspection →</a>
+  <div class="final-trust">
+    <div class="ft"><span>🛡️</span> Licensed & Insured</div>
+    <div class="ft"><span>📋</span> IN License #9186</div>
+    <div class="ft"><span>⭐</span> 5-Star Rated</div>
+    <div class="ft"><span>📍</span> Central Indiana Based</div>
+    <div class="ft"><span>💰</span> Free Inspection</div>
+  </div>
+  <div class="final-site">
+    <a href="https://gottacalljack.com">Visit GottaCallJack.com to see our full portfolio →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 The Jack of All Trades. All rights reserved.</span>
+    <span>Indiana Home Improvement License #9186 | Fully Licensed & Insured</span>
+    <span><a href="https://gottacalljack.com" style="color:#D42B2B">GottaCallJack.com</a></span>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY CTA -->
+<div class="mobile-cta">
+  <a href="tel:3178618557" class="call">📞 Call Chase</a>
+  <a href="sms:3178618557?body=Hi%20Chase%2C%20I%20need%20a%20hail%20damage%20inspection.%20My%20address%20is%3A%20" class="estimate">💬 Text for Inspection</a>
+</div>
+
+</body>
+</html>
