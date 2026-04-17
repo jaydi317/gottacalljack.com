@@ -210,7 +210,7 @@ function submitQuoteForm(e) {
   .then(function(r){ return r.json(); })
   .then(function(d){
     if(d.success) {
-      window.location.href = '/thankyou/';
+      window.location.href = '/thank-you/';
     } else { throw new Error('fail'); }
   })
   .catch(function(){
