@@ -142,7 +142,14 @@ footer{border-top:1px solid #252525;padding:24px 48px;text-align:center}
           <label>Tell us about your project</label>
           <textarea id="q_details" placeholder="What are you looking to have done? Any specific details, timeline, or budget in mind?"></textarea>
         </div>
+        <div style="margin:12px 0 10px">
+          <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:12px;color:#888;line-height:1.5">
+            <input type="checkbox" id="q_sms_consent" value="yes" style="margin-top:3px;flex-shrink:0;width:16px;height:16px;accent-color:#D42B2B">
+            <span>I agree to receive text messages from The Jack of All Trades regarding my project, including estimate follow-ups, appointment reminders, and review requests. Msg frequency varies. Msg & data rates may apply. Reply STOP to opt out, HELP for help.</span>
+          </label>
+        </div>
         <button type="submit" class="btn-submit" id="quoteSubmitBtn">Request My Free Estimate →</button>
+        <div style="margin-top:10px;text-align:center;font-size:11px;color:#666;line-height:1.6">By submitting, you agree to our <a href="/privacy" style="color:#888;text-decoration:underline">Privacy Policy</a> and <a href="/terms" style="color:#888;text-decoration:underline">Terms of Service</a>.</div>
         <div id="formError"></div>
       </form>
       <div class="form-note">🔒 Goes directly to Jack. No spam, no sharing, no call centers.</div>
